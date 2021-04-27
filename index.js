@@ -15,7 +15,7 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json())
 
-const products = require('./routes/products.router.js'); 
+const products = require('./routes/products.router.js');
 const login = require('./routes/login.router.js');
 const user = require('./routes/user.router.js')
 // const testuser = require('./routes/testuser.router.js')
@@ -30,8 +30,8 @@ initializeDBConnection();
 //populateProductsCollection();
 
 app.get('/', (req, res) => {
-  res.status(200).json({success : true ,message:'Hello Express app!'})
- 
+  res.status(200).json({ success: true, message: 'Hello Express app!' })
+
 });
 
 app.use("/products", products);
@@ -44,10 +44,10 @@ app.use("/login", login);
 app.use(routeNotFound)
 
 app.use(errorHandler)
- 
+
 // app.listen(3000, () => {
 //   console.log('server started');
 // });
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 8080, () => {
   console.log('server started');
 });
