@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const password = process.env['password'];
-const username = process.env['username']
+const username = encodeURIComponent(process.env['username'])
 
 async function initializeDBConnection(){
   const uri = `mongodb+srv://${username}:${password}@neog-cluster.7up1q.mongodb.net/ecommerce?retryWrites=true&w=majority`
