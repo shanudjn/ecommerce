@@ -19,7 +19,7 @@ const products = require('./routes/products.router.js');
 const login = require('./routes/login.router.js');
 const user = require('./routes/user.router.js')
 // const testuser = require('./routes/testuser.router.js')
-const cart = require('./routes/cart.router.js')
+// const cart = require('./routes/cart.router.js')
 
 
 initializeDBConnection();
@@ -35,10 +35,11 @@ app.get('/', (req, res) => {
 });
 
 app.use("/products", products);
-app.use("/user", user)
-app.use("/cart", cart);
-// app.use("/testuser",testuser);
+app.use("/user", user);
+
 app.use("/login", login);
+// app.use("/cart", cart);
+// app.use("/testuser",testuser);
 
 
 app.use(routeNotFound)
