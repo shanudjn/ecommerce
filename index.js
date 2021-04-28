@@ -27,7 +27,8 @@ initializeDBConnection();
 /**
  * RUN ONLY ONCE TO POPULATE TABLE
  */
-//populateProductsCollection();
+//initializeDBConnection();
+
 
 app.get('/', (req, res) => {
   res.status(200).json({ success: true, message: 'Hello Express app!' })
