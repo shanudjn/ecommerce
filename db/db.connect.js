@@ -12,7 +12,7 @@ async function initializeDBConnection(){
 
   }catch(error){
     console.log(error);
-    console.log("Error connecting to db")
+    console.log("Error connecting to db");
   }
 }
 

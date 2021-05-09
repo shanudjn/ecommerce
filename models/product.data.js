@@ -1,5 +1,6 @@
 const faker = require("faker");
 
+
 faker.seed(1024);
 const fakeProducts = [...Array(30)].map((item) => ({
   name: faker.commerce.productName(),
@@ -13,7 +14,7 @@ const fakeProducts = [...Array(30)].map((item) => ({
     "T-Shirts",
     "Hoodies",
     "Trousers",
-    "Stickers",   
+    "Stickers",
   ]),
 }));
 
