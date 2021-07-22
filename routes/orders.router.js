@@ -6,6 +6,7 @@ const Razorpay = require('razorpay')
 const router = express.Router();
 
 router.post("/orders", async (req, res) => {
+    const { amount } = req.body
     try {
         const instance = new Razorpay({
             key_id: process.env.RAZORPAY_KEY_ID,
@@ -13,7 +14,7 @@ router.post("/orders", async (req, res) => {
         });
 
         const options = {
-            amount: 50000, // amount in smallest currency unit
+            amount: amount, // amount in smallest currency unit
             currency: "INR",
             receipt: "receipt_order_74394",
         };
