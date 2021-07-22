@@ -3,6 +3,7 @@ const router = express.Router();
 const { extend } = require("lodash")
 
 const { User } = require('../models/user.model');
+const { route } = require('./products.router');
 
 
 //keep this for sign up
@@ -25,7 +26,25 @@ router.route('/')
       res.status(500).json({ success: false, message: error.message })
     }
   })
+router.route('/signup')
+  .post(async (req, res) => {
+    console.log("signing up")
+    const { username, password } = req.body.user;
+    try {
+      const newUser = await new User({ name: username, password: password, wishlist: [], cart: [] });
+      // const salt = await bcrypt.genSalt(10);
 
+      // newUser.password = await bcrypt.hash(newUser.password, salt);
+
+
+      await newUser.save();
+
+      res.status(201).json({ success: true, newUser })
+    } catch (error) {
+      res.status(501).json({ success: false, message: "Sign Up Failed", error: error.message })
+    }
+
+  })
 router.route("/:userId")
   .get(async (req, res) => {
     try {
