@@ -1,18 +1,22 @@
 const mongoose = require('mongoose');
-const username = process.env['username'];
-const password = encodeURIComponent(process.env['password'])
+// const username = process.env['DB_USERNAME'];
+// const password = encodeURIComponent(process.env['DB_PASSWORD'])
+const username = "shahazad"
+const password = "Sh@nu!995"
+async function initializeDBConnection() {
+  // console.log(username, password)
+  // const uri = `mongodb+srv://${username}:${password}@neog-cluster.7up1q.mongodb.net/ecommerce?retryWrites=true&w=majority`
+  const uri = `mongodb+srv://${username}:${password}@neog-cluster.7up1q.mongodb.net/ecommerce?retryWrites=true&w=majority`;
 
-async function initializeDBConnection(){
-  const uri = `mongodb+srv://${username}:${password}@neog-cluster.7up1q.mongodb.net/ecommerce?retryWrites=true&w=majority`
-  try{
+  try {
     const connectionResponse = await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
     console.log("Connected to db successfully...");
 
 
-  }catch(error){
+  } catch (error) {
     console.log(error);
-    console.log("Error connecting to db")
+    console.log("Error connecting to db");
   }
 }
 

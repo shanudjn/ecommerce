@@ -1,5 +1,5 @@
 const routeNotFound = (req, res) => {
-  res.json({success : false , message : "invalid route"})
+  res.json({ success: false, message: "invalid route" })
 }
 
-module.exports = { routeNotFound }
+module.exports = { routeNotFound };
